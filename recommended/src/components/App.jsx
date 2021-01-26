@@ -27,14 +27,14 @@ class App extends React.Component {
 
   componentDidMount() {
     const { id } = this.state;
-    axios.get(`http://localhost:2222/homes/${id}`)
+    axios.get(`http://localhost:3003/homes/${id}`)
       .then((homes) => {
         const listings = homes.data.slice(0, 12);
         this.setState({
           homes: listings,
         });
       });
-    axios.get('http://localhost:2222/activities/4')
+    axios.get('http://localhost:3003/activities/4')
       .then((activities) => {
         const activitiesList = activities.data;
         this.setState({

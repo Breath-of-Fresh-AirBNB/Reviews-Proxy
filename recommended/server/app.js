@@ -1,15 +1,18 @@
 import express from 'express';
 
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const Home = require('../database/homeSchema.js');
 const Activity = require('../database/activitySchema.js');
 
 const app = express();
+
+app.use(cors());
 app.use(express.static('dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('http://localhost:3003/homes/:id', (req, res) => {
+app.get('/homes/:id', (req, res) => {
   Home.find({ homeId: req.params.id })
     .then((home) => {
       Home.find({ destination: home[0].destination })
@@ -25,7 +28,7 @@ app.get('http://localhost:3003/homes/:id', (req, res) => {
     });
 });
 
-app.get('http://localhost:3003/activities/:id', (req, res) => {
+app.get('/activities/:id', (req, res) => {
   Home.find({ homeId: req.params.id })
     .then((home) => {
       Activity.find({ destination: home[0].destination })

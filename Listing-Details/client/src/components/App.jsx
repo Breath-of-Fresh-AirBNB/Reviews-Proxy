@@ -22,7 +22,7 @@ class App extends React.Component {
 
   // get data from db
   getAll() {
-    axios.get('/listings')
+    axios.get('http://localhost:3002/listings')
       .then(({ data }) => {
         this.setState(
           { listings: data },
