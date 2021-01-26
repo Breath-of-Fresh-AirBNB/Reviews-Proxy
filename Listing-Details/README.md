@@ -1,6 +1,6 @@
 Set Up Commands:
 
-Follow the numbered steps to sey up this app
+Follow the numbered steps to set up this app
 
 1. npm i
 2. npm run seed

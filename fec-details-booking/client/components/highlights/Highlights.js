@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 function Highlights(props) {
   var selfCheck = `Check yourself in with the lockbox.`;
-  console.log('props: ', props);
+
   if (props.lockBox) {
     selfCheck = `Check yourself in with the lockbox.`;
   } else {
@@ -44,13 +44,13 @@ function Highlights(props) {
     desc: `The host committed to Airbnb's 5-step enhanced cleaning proces.`,
     icon: '../img/highlights/enhancedClean.png'
   };
-  var superHost = { 
+  var superHost = {
     name: 'superHost',
     header: `${props.hostName} is a Superhost`,
     desc: `Superhosts are experienced, higly rated hosts who are committed to prividng great stays for guests.`,
     icon: '../img/highlights/superHost.png'
   };
-  var selfCheckIn = { 
+  var selfCheckIn = {
     name: 'selfCheckIn',
     header: `Self check-in`,
     desc: selfCheck,
@@ -74,16 +74,16 @@ function Highlights(props) {
     smoking: props.smoking,
     parties: props.parties,
   }
-  console.log('houseRulesArr', houseRulesArr);
+
   var houseRulesStr = '' + _.reduce(houseRulesArr, (memo, val, key, list) => {
     if (!val) {
-      console.log('houserules: ', memo, key, list);
+
       return memo + key + ', '
     } else {
       return memo
     }
   }, '');
-  console.log('houserulesstr: ', houseRulesStr);
+
   var houseRulesStr2 = houseRulesStr.length > 0 ? houseRulesStr + 'or dinosaurs.' : 'dinosaurs.';
   var houseRules = {
     name: 'house rules',
@@ -99,7 +99,7 @@ function Highlights(props) {
     cancellation: props.checkIn ? true : false,
     houseRules: true,
   }
-  console.log('houseRulesStr: ', houseRulesStr);
+
   // const houseRulesStr = houseRulesFunc();
   var highlights = {
     shared,
@@ -115,7 +115,7 @@ function Highlights(props) {
     return val ? highlights[key] : highlights[key + 'False'] || null
   });
   const RenderHighlights = () => {
-    console.log('highlight objs: ', highlightObjs);
+
     var list = highlightObjs.map((val, i) => {
       if (val) {
         return RenderLine(val, i)
@@ -145,7 +145,7 @@ function Highlights(props) {
     )
   }
   return (
-    <div className="details-module margin-20-t-b "> 
+    <div className="details-module margin-20-t-b ">
       {RenderHighlights()}
     </div>
   )

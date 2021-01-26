@@ -56,6 +56,11 @@
   margin-left: 20%;
 }
 
+.mainContainer {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto;
+}
 /* first flex container for Ratings */
 .flex-container {
   display: flex;

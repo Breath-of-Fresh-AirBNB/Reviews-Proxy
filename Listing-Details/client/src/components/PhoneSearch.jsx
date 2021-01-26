@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Search = ({ searchHandler }) => (
+const PhoneSearch = ({ searchHandler }) => (
   <nav id="nav" className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
       <img alt="Airbnb logo" id="logo" src="../../icons/logo.png" />
@@ -29,4 +29,4 @@ const Search = ({ searchHandler }) => (
   </nav>
 );
 
-export default Search;
+export default PhoneSearch;
