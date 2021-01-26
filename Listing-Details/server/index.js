@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-app.get('/listings', (req, res) => {
+app.get('http://localhost:3002/listings', (req, res) => {
   models.getAllListings((err, results) => {
     if (err) {
       res.send(err);
@@ -21,7 +21,7 @@ app.get('/listings', (req, res) => {
   });
 });
 
-app.get('/listings/:home', (req, res) => {
+app.get('http://localhost:3002/listings/:home', (req, res) => {
   const home = { home: Number(req.params.home) };
   models.getListing(home, (err, results) => {
     if (err) {
@@ -32,7 +32,7 @@ app.get('/listings/:home', (req, res) => {
   });
 });
 
-app.delete('/listings/:home', (req, res) => {
+app.delete('http://localhost:3002/listings/:home', (req, res) => {
   const home = { home: Number(req.params.home) };
   models.deleteListing(home, (err, results) => {
     if (err) {

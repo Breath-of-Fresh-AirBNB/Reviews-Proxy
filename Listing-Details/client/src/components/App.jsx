@@ -1,8 +1,9 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
-import Listings from './Listings.jsx';
+import Listings from './listings.jsx';
 import Search from './search.jsx';
 
 class App extends React.Component {
