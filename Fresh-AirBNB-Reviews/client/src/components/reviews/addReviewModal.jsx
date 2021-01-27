@@ -20,10 +20,10 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    height: 600,
-    maxHeight: 600,
+    height: 800,
+    maxHeight: 800,
     overflow: 'auto',
-    width: 412,
+    width: 500,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid rgb(117, 117, 117)',
     boxShadow: theme.shadows[5],
