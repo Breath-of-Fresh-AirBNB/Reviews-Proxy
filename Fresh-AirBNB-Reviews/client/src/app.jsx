@@ -24,7 +24,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getReviewsById();
+    this.getReviewsById(this.props.match.params.id);
+  }
+
+  componentDidUpdate() {
+    this.getReviewsById(this.props.match.params.id);
   }
 
   handleNewPost(newReview) {
@@ -35,8 +39,8 @@ class App extends React.Component {
       });
   }
 
-  getReviewsById() {
-    axios.get(`http://localhost:3001/reviews/${(Math.floor(Math.random() * 100) + 1)}`)
+  getReviewsById(path) {
+    axios.get(`http://localhost:3001/reviews/${path}`)
       .then((results) => {
         this.setState({
           reviewsById: results.data,
