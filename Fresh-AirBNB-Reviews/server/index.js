@@ -18,8 +18,8 @@ app.get('http://localhost:3001/reviews', (req, res) => {
   });
 });
 
-app.get('/reviews/:homeId', (req, res) => {
-  const id = { homeId: Number(req.params.homeId) };
+app.get('/reviews/:id', (req, res) => {
+  const id = { homeId: Number(req.params.id) };
   Review.find(id).sort({ createdAt: 'descending' }).exec((err, result) => {
     if (err) res.status(400).send();
     res.status(200).send(result);
