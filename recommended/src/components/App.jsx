@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -18,29 +20,31 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: 4,
       homes: sampleHomes,
       activities: sampleActivities,
       destinations: sampleHomes[0].relatedDestinations,
     };
   }
 
-  componentDidMount() {
-    const { id } = this.state;
-    axios.get(`http://localhost:3003/homes/${id}`)
+  componentDidMount(path) {
+    axios.get(`http://localhost:3003/homes/${path}`)
       .then((homes) => {
         const listings = homes.data.slice(0, 12);
         this.setState({
           homes: listings,
         });
       });
-    axios.get('http://localhost:3003/activities/4')
+    axios.get(`http://localhost:3003/activities/${path}`)
       .then((activities) => {
         const activitiesList = activities.data;
         this.setState({
           activities: activitiesList,
         });
       });
+  }
+
+  componentDidUpdate(path) {
+    this.componentDidMount(path);
   }
 
   render() {

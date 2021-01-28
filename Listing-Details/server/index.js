@@ -5,7 +5,7 @@ const cors = require('cors');
 const models = require('./models');
 
 const app = express();
-const PORT = 3002;
+const PORT = 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
